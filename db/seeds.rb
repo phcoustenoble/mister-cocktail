@@ -8,3 +8,5 @@
 cocktail1 = Cocktail.create(name: "Bloody Mary")
 cocktail2 = Cocktail.create(name: "Old Fashioned")
 cocktail3 = Cocktail.create(name: "Pimm's Cup")
+ingredient1 = Ingredient.create(name: "Vodka")
+ingredient2 = Ingredient.create(name: "Rhum")
