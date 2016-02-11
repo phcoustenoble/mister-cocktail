@@ -1,0 +1,9 @@
+<h2><%= @cocktail.name %></h2>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :description, placeholder: "Ex: 6cl of vodka"%>
+  <%= f.input :ingredient, collection: Ingredient::CATEGORIES, prompt: "Select ingredient", placeholder: "Vodka" %>
+
+  <%= f.button :submit, label: "add this ingredient", input_html: {class: "btn btn-primary"}%>
+<% end %>

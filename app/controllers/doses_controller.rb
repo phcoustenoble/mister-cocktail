@@ -1,24 +1,28 @@
 class DosesController < ApplicationController
   def new           # GET /restaurants/new
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose = Dose.new
   end
 
   def create        # POST /restaurants
     @cocktail = Cocktail.find(params[:cocktail_id])
     @dose = @cocktail.doses.build(doses_params)
-  end
-
-  def edit          # GET /restaurants/:id/edit
-  end
-
-  def update        # PATCH /restaurants/:id
+    if @dose.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
   def destroy       # DELETE /restaurants/:id
+    @dose = Dose.find(params[:id])
+    @dose.destroy
+    redirect_to cocktail_path(@dose.cocktail)
   end
 
 
   private
   def doses_params
-    params.require(:review).permit(:content)
+    params.require(:dose).permit(:description, :ingredient_id)
   end
 end
