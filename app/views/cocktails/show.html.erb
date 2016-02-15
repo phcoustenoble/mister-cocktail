@@ -1,4 +1,5 @@
 <h2><%= @cocktail.name %></h2>
+<p><%= image_tag @cocktail.photo.url(:thumb) %></p>
 <p><% @cocktail.doses.each do |dose|%></p>
 <p><%= dose.ingredient.name + ": " + dose.description %></p>
 <%= link_to "Delete the dose", dose_path(dose),

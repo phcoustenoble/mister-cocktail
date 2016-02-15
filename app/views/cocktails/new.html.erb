@@ -1,4 +1,7 @@
 <%= form_for(@cocktail) do |f| %>
+  <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.submit "add a cocktail" %>
+  <%= f.file_field :photo %>
+  <%= f.hidden_field :photo_cache %>
+  <%= f.submit "add the cocktail" %>
 <% end %>
